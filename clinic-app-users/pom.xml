@@ -10,13 +10,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>clinic-app-visits</artifactId>
+    <artifactId>clinic-app-users</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>clinic-app-visits-api</module>
-        <module>clinic-app-visits-deployment</module>
-        <module>clinic-app-visits-services</module>
+        <module>clinic-app-users-api</module>
+        <module>clinic-app-users-deployment</module>
+        <module>clinic-app-users-services</module>
     </modules>
+    
 </project>

@@ -10,9 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>clinic-app-patients</module>
         <module>clinic-app-libs</module>
-        <module>clinic-app-employees</module>
+        <module>clinic-app-users</module>
         <module>clinic-app-visits</module>
     </modules>
 
