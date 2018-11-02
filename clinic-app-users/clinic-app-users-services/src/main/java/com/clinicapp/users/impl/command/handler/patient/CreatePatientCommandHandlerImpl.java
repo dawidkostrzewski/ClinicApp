@@ -1,4 +1,4 @@
-package com.clinicapp.users.impl.command.handlers.patient;
+package com.clinicapp.users.impl.command.handler.patient;
 
 import com.clinicapp.libs.exceptions.ClinicAppException;
 import com.clinicapp.users.api.command.definition.patient.CreatePatientCommand;
@@ -29,6 +29,8 @@ public class CreatePatientCommandHandlerImpl implements CreatePatientCommandHand
         CreatePatientCommandValidator.validate(command);
 
         checkIfDoctorExistQueryHandler.handle(new CheckIfDoctorExistQuery(command.getDoctorId()));
+
+        //TODO CHECK IF PATIENT IDENTIFICATION NUMBER IS UNIQUE
 
         Patient patient = patientsRepo.create(PatientFactory.create(command));
 

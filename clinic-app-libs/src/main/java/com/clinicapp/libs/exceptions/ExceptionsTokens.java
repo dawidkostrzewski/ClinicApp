@@ -23,6 +23,11 @@ public class ExceptionsTokens {
     public final static String EMPTY_EVENT = "Empty event";
     public final static String EMPTY_QUERY = "Empty query";
 
+    public final static String MISSING_EMAIL = "Missing user e-mail";
+    public final static String MISSING_DOCTOR_WORK_HOURS = "Missing doctor work hours";
+    public final static String MISSING_FIRST_NAME = "Missing user first name";
+    public final static String MISSING_FAMILY_NAME = "Missing user family name";
+
     public final static String MEDICAL_SERVICE_ACTIVE = "Patient have active service";
     public final static String MISSING_ACTIVE_MEDICAL_SERVICE = "Patient don't have active medical service";
     public final static String MISSING_EXAMINATION_FREQUENCY = "Missing examination frequency";

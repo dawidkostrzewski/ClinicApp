@@ -30,11 +30,11 @@ public abstract class User extends BaseEntity {
     @Column(name = TableDefs.ColumnNames.User.ROLE, insertable = false, updatable = false)
     private Role role;
 
-    @Column(name = TableDefs.ColumnNames.User.EMAIL)
+    @Column(name = TableDefs.ColumnNames.User.EMAIL, unique = true)
     private String email;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    private Set<String> permissions = new HashSet<String>();
+    private Set<String> permissions = new HashSet<>();
 
     public Set<String> getPermissions() {
         return permissions;

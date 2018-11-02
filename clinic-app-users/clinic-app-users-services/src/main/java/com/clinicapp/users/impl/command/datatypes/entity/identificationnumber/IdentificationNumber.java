@@ -12,7 +12,7 @@ import java.util.UUID;
 @Table(name = TableDefs.TablesNames.IDENTIFICATION_NUMBER)
 public class IdentificationNumber extends BaseEntity implements Serializable {
 
-    @Column(name = TableDefs.ColumnNames.IdentificationNumber.VALUE)
+    @Column(name = TableDefs.ColumnNames.IdentificationNumber.VALUE, unique = true)
     private String value;
 
     @Column(name = TableDefs.ColumnNames.IdentificationNumber.TYPE)
