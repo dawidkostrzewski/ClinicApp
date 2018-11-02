@@ -1,5 +1,6 @@
 package com.clinicapp.libs.repo;
 
+import com.clinicapp.libs.entity.BaseEntity;
 import com.clinicapp.libs.exceptions.ClinicAppException;
 import com.clinicapp.libs.exceptions.ExceptionsTokens;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class AbstractRepo<T> {
+public abstract class AbstractRepo<T extends BaseEntity> {
 
     private EntityManager entityManager;
 
@@ -24,7 +25,7 @@ public abstract class AbstractRepo<T> {
         this.entityManager = entityManager;
     }
 
-    public Class<T> getEntityType() {
+    private Class<T> getEntityType() {
         ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
         return (Class) type.getActualTypeArguments()[0];
     }
@@ -59,6 +60,14 @@ public abstract class AbstractRepo<T> {
             getEntityManager().persist(entity);
             getEntityManager().flush();
             return entity;
+        } catch (EJBTransactionRolledbackException e) {
+            throw new ClinicAppException(ExceptionsTokens.CREATE_ERROR);
+        }
+    }
+
+    public UUID save(T entity) throws ClinicAppException {
+        try {
+            return create(entity).getId();
         } catch (EJBTransactionRolledbackException e) {
             throw new ClinicAppException(ExceptionsTokens.CREATE_ERROR);
         }

@@ -5,7 +5,6 @@ import com.clinicapp.users.api.command.definition.patient.CreatePatientCommand;
 import com.clinicapp.users.api.command.handler.patient.CreatePatientCommandHandler;
 import com.clinicapp.users.api.query.definition.doctor.CheckIfDoctorExistQuery;
 import com.clinicapp.users.api.query.handler.doctor.CheckIfDoctorExistQueryHandler;
-import com.clinicapp.users.impl.command.datatypes.aggregate.Patient;
 import com.clinicapp.users.impl.command.domain.patient.factory.PatientFactory;
 import com.clinicapp.users.impl.command.repo.patient.PatientsRepo;
 import com.clinicapp.users.impl.command.validation.patient.CreatePatientCommandValidator;
@@ -32,8 +31,6 @@ public class CreatePatientCommandHandlerImpl implements CreatePatientCommandHand
 
         //TODO CHECK IF PATIENT IDENTIFICATION NUMBER IS UNIQUE
 
-        Patient patient = patientsRepo.create(PatientFactory.create(command));
-
-        return patient.getId();
+        return patientsRepo.save(PatientFactory.create(command));
     }
 }
