@@ -22,7 +22,7 @@ public class CreateDoctorCommandHandlerImpl implements CreateDoctorCommandHandle
 
         CreateDoctorCommandValidator.validate(command);
 
-        //TODO CHECK IF DOCTOR EMAIL IS UNIQUE
+        doctorsRepo.checkDoctorEmailUnique(command.getEmail());
 
         return doctorsRepo.save(DoctorFactory.create(command));
     }

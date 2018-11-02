@@ -40,4 +40,7 @@ public class ExceptionsTokens {
 
     public final static String MISSING_USER_LOGIN = "Missing user login";
     public final static String MISSING_EMPLOYEE_ROLE = "Missing user role";
+
+    public static final String EMAIL_ALREADY_TAKEN = "E-mail is already taken";
+    public static final String IDENTIFICATION_NUMBER_UNIQUE_FALIED = "Patient with this identification number exist";
 }

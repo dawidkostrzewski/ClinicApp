@@ -29,7 +29,7 @@ public class CreatePatientCommandHandlerImpl implements CreatePatientCommandHand
 
         checkIfDoctorExistQueryHandler.handle(new CheckIfDoctorExistQuery(command.getDoctorId()));
 
-        //TODO CHECK IF PATIENT IDENTIFICATION NUMBER IS UNIQUE
+        patientsRepo.checkPatientIdentificationNumberUnique(command.getIdentificationNumberValue());
 
         return patientsRepo.save(PatientFactory.create(command));
     }
