@@ -8,10 +8,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = TableDefs.ColumnNames.User.ROLE)
-@Table(name = TableDefs.TablesNames.USERS, schema = TableDefs.SCHEMA_NAME)
+@MappedSuperclass
 public abstract class User extends BaseEntity {
 
     @Column(name = TableDefs.ColumnNames.User.FIRST_NAME)
@@ -26,7 +23,7 @@ public abstract class User extends BaseEntity {
     @Column(name = TableDefs.ColumnNames.User.PASSWORD)
     private String password;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     @Column(name = TableDefs.ColumnNames.User.ROLE, insertable = false, updatable = false)
     private Role role;
 

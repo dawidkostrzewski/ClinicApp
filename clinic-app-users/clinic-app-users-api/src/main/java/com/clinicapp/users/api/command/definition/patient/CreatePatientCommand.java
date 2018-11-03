@@ -122,14 +122,6 @@ public class CreatePatientCommand implements Serializable {
         this.flatNumber = flatNumber;
     }
 
-    public UUID getIdentificationNumberType() {
-        return identificationNumberTypeId;
-    }
-
-    public void setIdentificationNumberType(UUID identificationNumberTypeId) {
-        this.identificationNumberTypeId = identificationNumberTypeId;
-    }
-
     public String getIdentificationNumberValue() {
         return identificationNumberValue;
     }
@@ -168,5 +160,13 @@ public class CreatePatientCommand implements Serializable {
 
     public void setContactPhone(String contactPhone) {
         this.contactPhone = contactPhone;
+    }
+
+    public UUID getIdentificationNumberTypeId() {
+        return identificationNumberTypeId;
+    }
+
+    public void setIdentificationNumberTypeId(UUID identificationNumberTypeId) {
+        this.identificationNumberTypeId = identificationNumberTypeId;
     }
 }

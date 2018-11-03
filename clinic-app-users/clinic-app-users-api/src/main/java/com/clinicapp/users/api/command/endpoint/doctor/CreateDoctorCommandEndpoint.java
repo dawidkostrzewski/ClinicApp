@@ -17,7 +17,7 @@ import static com.clinicapp.users.api.command.endpoint.doctor.CreateDoctorComman
 @Path(END_POINT_ADDRESS)
 public class CreateDoctorCommandEndpoint extends AbstractEndpoint {
 
-    static final String END_POINT_ADDRESS = "/patients/create";
+    static final String END_POINT_ADDRESS = "/doctor/create";
 
     private CreateDoctorCommandHandler service() {
         return getService(CreateDoctorCommandHandler.jndi);

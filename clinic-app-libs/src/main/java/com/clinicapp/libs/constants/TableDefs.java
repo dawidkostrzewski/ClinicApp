@@ -17,7 +17,7 @@ public class TableDefs {
         public static final String VISIT = "VISIT";
         public static final String PERMISSION = "PERMISSIONS";
         public static final String IDENTIFICATION_NUMBER_TYPE = "IDENTIFICATION_NUMBER_TYPE";
-        public static final String IDENTIFICATION_NUMBER = "IDENTIFICATION_NUMBER_TYPE";
+        public static final String IDENTIFICATION_NUMBER = "IDENTIFICATION_NUMBER";
         public static final String ADDRESS = "ADDRESS";
     }
 

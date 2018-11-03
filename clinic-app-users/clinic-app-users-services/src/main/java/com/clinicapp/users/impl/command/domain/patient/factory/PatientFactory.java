@@ -40,7 +40,7 @@ public class PatientFactory {
 
         //IDENTIFICATION NUMBER
         IdentificationNumber identificationNumber = new IdentificationNumber();
-        identificationNumber.setType(command.getIdentificationNumberType());
+        identificationNumber.setType(command.getIdentificationNumberTypeId());
         identificationNumber.setValue(command.getIdentificationNumberValue());
 
         //ADDRESS

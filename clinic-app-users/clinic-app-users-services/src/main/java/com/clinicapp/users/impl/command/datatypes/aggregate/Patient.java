@@ -1,6 +1,7 @@
 package com.clinicapp.users.impl.command.datatypes.aggregate;
 
 
+import com.clinicapp.users.impl.command.datatypes.QueryTokens;
 import com.clinicapp.users.impl.command.datatypes.entity.User;
 import com.clinicapp.users.impl.command.datatypes.entity.address.Address;
 import com.clinicapp.users.impl.command.datatypes.entity.identificationnumber.IdentificationNumber;
@@ -11,8 +12,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
+@NamedQueries({
+        @NamedQuery(
+                name = QueryTokens.GET_PATIENT_BY_IDENTIFICATION_NUMBER_VALUE,
+                query = "SELECT p FROM Patient p " +
+                        "WHERE p.identificationNumber.value = :" + QueryTokens.IDENTIFICATION_NUMBER_VALUE
+        )
+})
 @Entity
-@DiscriminatorValue("Patient")
+@Table(name = TableDefs.TablesNames.PATIENTS)
 public class Patient extends User implements Serializable {
 
     @Enumerated(EnumType.ORDINAL)

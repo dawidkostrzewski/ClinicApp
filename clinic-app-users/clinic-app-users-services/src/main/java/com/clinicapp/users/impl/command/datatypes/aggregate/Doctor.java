@@ -1,15 +1,20 @@
 package com.clinicapp.users.impl.command.datatypes.aggregate;
 
+import com.clinicapp.users.impl.command.datatypes.QueryTokens;
 import com.clinicapp.users.impl.command.datatypes.entity.User;
 import com.clinicapp.libs.constants.TableDefs;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
-
+@NamedQueries({
+        @NamedQuery(
+                name = QueryTokens.GET_DOCTOR_BY_EMAIL,
+                query = "SELECT d FROM Doctor d " +
+                        "WHERE d.email = :" + QueryTokens.EMAIL
+        )
+})
 @Entity
-@DiscriminatorValue("Doctor")
+@Table(name = TableDefs.TablesNames.DOCTORS)
 public class Doctor extends User implements Serializable {
 
     @Column(name = TableDefs.ColumnNames.Doctor.SPECIALIZATION)
