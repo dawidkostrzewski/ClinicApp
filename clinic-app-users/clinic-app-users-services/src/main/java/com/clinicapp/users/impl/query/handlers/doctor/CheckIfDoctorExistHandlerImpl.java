@@ -2,7 +2,7 @@ package com.clinicapp.users.impl.query.handlers.doctor;
 
 import com.clinicapp.libs.exceptions.ClinicAppException;
 import com.clinicapp.libs.handler.AbstractHandler;
-import com.clinicapp.users.api.query.definition.doctor.CheckIfDoctorExistQuery;
+import com.clinicapp.users.api.query.definition.doctor.query.CheckIfDoctorExistQuery;
 import com.clinicapp.users.api.query.handler.doctor.CheckIfDoctorExistQueryHandler;
 import com.clinicapp.users.impl.command.datatypes.aggregate.Doctor;
 import com.clinicapp.users.impl.command.repo.doctor.DoctorsRepo;

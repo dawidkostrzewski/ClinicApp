@@ -11,6 +11,11 @@ import java.io.Serializable;
                 name = QueryTokens.GET_DOCTOR_BY_EMAIL,
                 query = "SELECT d FROM Doctor d " +
                         "WHERE d.email = :" + QueryTokens.EMAIL
+        ),
+        @NamedQuery(
+                name = QueryTokens.GET_DOCTORS_LIST,
+                query = "SELECT d FROM Doctor d " +
+                        "ORDER BY d.familyName DESC "
         )
 })
 @Entity

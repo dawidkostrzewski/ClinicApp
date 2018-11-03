@@ -3,7 +3,7 @@ package com.clinicapp.users.impl.command.handler.patient;
 import com.clinicapp.libs.exceptions.ClinicAppException;
 import com.clinicapp.users.api.command.definition.patient.CreatePatientCommand;
 import com.clinicapp.users.api.command.handler.patient.CreatePatientCommandHandler;
-import com.clinicapp.users.api.query.definition.doctor.CheckIfDoctorExistQuery;
+import com.clinicapp.users.api.query.definition.doctor.query.CheckIfDoctorExistQuery;
 import com.clinicapp.users.api.query.handler.doctor.CheckIfDoctorExistQueryHandler;
 import com.clinicapp.users.impl.command.domain.patient.factory.PatientFactory;
 import com.clinicapp.users.impl.command.repo.patient.PatientsRepo;
@@ -29,7 +29,7 @@ public class CreatePatientCommandHandlerImpl implements CreatePatientCommandHand
 
         checkIfDoctorExistQueryHandler.handle(new CheckIfDoctorExistQuery(command.getDoctorId()));
 
-        patientsRepo.checkPatientIdentificationNumberUnique(command.getIdentificationNumberValue());
+        patientsRepo.checkPatientUniqueFields(command.getIdentificationNumberValue(), command.getEmail());
 
         return patientsRepo.save(PatientFactory.create(command));
     }

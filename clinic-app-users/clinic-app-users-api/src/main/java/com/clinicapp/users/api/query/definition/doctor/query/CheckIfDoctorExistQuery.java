@@ -1,4 +1,4 @@
-package com.clinicapp.users.api.query.definition.doctor;
+package com.clinicapp.users.api.query.definition.doctor.query;
 
 import java.io.Serializable;
 import java.util.UUID;

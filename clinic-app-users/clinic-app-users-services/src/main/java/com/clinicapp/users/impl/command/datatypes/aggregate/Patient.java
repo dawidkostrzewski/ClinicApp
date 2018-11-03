@@ -14,9 +14,21 @@ import java.util.UUID;
 
 @NamedQueries({
         @NamedQuery(
-                name = QueryTokens.GET_PATIENT_BY_IDENTIFICATION_NUMBER_VALUE,
+                name = QueryTokens.CHECK_PATIENT_UNIQUE_FIELDS,
                 query = "SELECT p FROM Patient p " +
-                        "WHERE p.identificationNumber.value = :" + QueryTokens.IDENTIFICATION_NUMBER_VALUE
+                        "WHERE p.identificationNumber.value = :" + QueryTokens.IDENTIFICATION_NUMBER_VALUE + " " +
+                        "OR p.email = :" + QueryTokens.EMAIL
+        ),
+        @NamedQuery(
+                name = QueryTokens.GET_PATIENTS_LIST,
+                query = "SELECT p FROM Patient p " +
+                        "ORDER BY p.familyName DESC "
+        ),
+        @NamedQuery(
+                name = QueryTokens.GET_PATIENTS_LIST_BY_DOCTOR_ID,
+                query = "SELECT p FROM Patient p " +
+                        "WHERE p.doctorId = :" + QueryTokens.DOCTOR_ID + " " +
+                        "ORDER BY p.familyName DESC "
         )
 })
 @Entity

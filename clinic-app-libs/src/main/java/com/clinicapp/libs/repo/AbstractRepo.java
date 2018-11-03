@@ -106,6 +106,24 @@ public abstract class AbstractRepo<T extends BaseEntity> {
         }
     }
 
+    public T getByNamedQuery(String queryName, List<String> paramsNames, List<Object> paramsValues) throws ClinicAppException {
+        try {
+            if(paramsNames.size() != paramsValues.size()) {
+                throw new ClinicAppException(ExceptionsTokens.INVALID_PARAMS_NUMBER);
+            }
+            TypedQuery<T> query = getEntityManager().createNamedQuery(queryName, this.getEntityType());
+            for (int i = 0; i < paramsNames.size(); i++) {
+                query.setParameter(paramsNames.get(i), paramsValues.get(i));
+            }
+
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (EJBTransactionRolledbackException e) {
+            throw new ClinicAppException(ExceptionsTokens.ERROR_WITH_QUERY + " " + queryName);
+        }
+    }
+
     public List<T> getRangeByNamedQuery(String queryName, List<String> paramsNames, List<Object> paramsValues) throws ClinicAppException {
         try {
             if (paramsNames.size() != paramsValues.size()) {

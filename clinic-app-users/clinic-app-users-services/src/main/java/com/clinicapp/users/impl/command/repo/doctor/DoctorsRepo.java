@@ -3,6 +3,7 @@ package com.clinicapp.users.impl.command.repo.doctor;
 import com.clinicapp.libs.exceptions.ClinicAppException;
 import com.clinicapp.libs.exceptions.ExceptionsTokens;
 import com.clinicapp.libs.repo.AbstractRepo;
+import com.clinicapp.users.api.query.definition.doctor.query.GetDoctorsListQuery;
 import com.clinicapp.users.impl.command.datatypes.aggregate.Doctor;
 
 import javax.annotation.PostConstruct;
@@ -11,7 +12,10 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import java.util.List;
+
 import static com.clinicapp.users.impl.command.datatypes.QueryTokens.EMAIL;
+import static com.clinicapp.users.impl.command.datatypes.QueryTokens.GET_DOCTORS_LIST;
 import static com.clinicapp.users.impl.command.datatypes.QueryTokens.GET_DOCTOR_BY_EMAIL;
 
 @Stateless
@@ -33,5 +37,11 @@ public class DoctorsRepo extends AbstractRepo<Doctor> {
         if(doctor != null) {
             throw new ClinicAppException(ExceptionsTokens.EMAIL_ALREADY_TAKEN);
         }
+    }
+
+    public List<Doctor> getDoctorsList(GetDoctorsListQuery query) throws ClinicAppException {
+
+        return getRangeByNamedQueryWithoutParameters(GET_DOCTORS_LIST, query.getLimit(), query.getOffset());
+
     }
 }

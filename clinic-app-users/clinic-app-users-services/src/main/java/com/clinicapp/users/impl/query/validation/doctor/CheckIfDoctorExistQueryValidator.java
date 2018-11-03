@@ -2,7 +2,7 @@ package com.clinicapp.users.impl.query.validation.doctor;
 
 import com.clinicapp.libs.exceptions.ClinicAppException;
 import com.clinicapp.libs.exceptions.ExceptionsTokens;
-import com.clinicapp.users.api.query.definition.doctor.CheckIfDoctorExistQuery;
+import com.clinicapp.users.api.query.definition.doctor.query.CheckIfDoctorExistQuery;
 
 public class CheckIfDoctorExistQueryValidator {
 
