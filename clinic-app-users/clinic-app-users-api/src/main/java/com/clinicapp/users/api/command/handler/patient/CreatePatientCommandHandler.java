@@ -11,5 +11,5 @@ import java.util.UUID;
 @Remote
 public interface CreatePatientCommandHandler extends AbstractCommandHandler<UUID, CreatePatientCommand, ClinicAppException> {
 
-    String jndi = "java:app/clinic-app-users/CreatePatientCommandHandlerImpl!com.clinicapp.users.api.command.handler.patient.CreatePatientCommandHandler";
+    String jndi = "java:global/clinic-app-users/CreatePatientCommandHandlerImpl!com.clinicapp.users.api.command.handler.patient.CreatePatientCommandHandler";
 }

@@ -5,7 +5,7 @@ import com.clinicapp.users.api.query.definition.patient.query.GetPatientsListQue
 import com.clinicapp.users.api.query.definition.patient.result.GetPatientsListQueryResult;
 import com.clinicapp.users.api.query.handler.patient.GetPatientsListQueryHandler;
 import com.clinicapp.users.impl.command.datatypes.aggregate.Patient;
-import com.clinicapp.users.impl.command.domain.patient.converter.PatientConverter;
+import com.clinicapp.users.impl.query.domain.patient.converter.PatientConverter;
 import com.clinicapp.users.impl.command.repo.patient.PatientsRepo;
 import com.clinicapp.users.impl.query.validation.patient.GetPatientListQueryValidator;
 

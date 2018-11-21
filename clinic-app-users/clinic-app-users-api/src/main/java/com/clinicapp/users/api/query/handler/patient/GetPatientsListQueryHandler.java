@@ -10,6 +10,6 @@ import javax.ejb.Remote;
 @Remote
 public interface GetPatientsListQueryHandler extends AbstractQueryHandler<GetPatientsListQueryResult, GetPatientsListQuery, ClinicAppException> {
 
-    String jndi= "java:app/clinic-app-users/GetPatientsListQueryHandlerImpl!com.clinicapp.users.api.query.handler.patient.GetPatientsListQueryHandler";
+    String jndi= "java:global/clinic-app-users/GetPatientsListQueryHandlerImpl!com.clinicapp.users.api.query.handler.patient.GetPatientsListQueryHandler";
 
 }

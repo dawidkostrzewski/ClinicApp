@@ -28,13 +28,6 @@ public class ExceptionsTokens {
     public final static String MISSING_FIRST_NAME = "Missing user first name";
     public final static String MISSING_FAMILY_NAME = "Missing user family name";
 
-    public final static String MEDICAL_SERVICE_ACTIVE = "Patient have active service";
-    public final static String MISSING_ACTIVE_MEDICAL_SERVICE = "Patient don't have active medical service";
-    public final static String MISSING_EXAMINATION_FREQUENCY = "Missing examination frequency";
-    public final static String MISSING_EXAMINATION_THRESHOLDS = "Missing examination thresholds";
-
-    public final static String MEDICAL_SERVICE_CONTAINS_THIS_EXAMINATION_TYPE = "Medical service contains this type of examination";
-
     public final static String PATIENT_ALREADY_HAVE_DEVICE = "Patient already have registered device";
     public final static String MISSING_DEVICE_ID = "Missing device ID";
 
@@ -43,4 +36,7 @@ public class ExceptionsTokens {
 
     public static final String EMAIL_ALREADY_TAKEN = "E-mail is already taken";
     public static final String IDENTIFICATION_NUMBER_UNIQUE_FALIED = "Patient with this identification number exist";
+
+    public static final String MISSING_VISIT_TIME = "Missing visit time";
+    public static final String PATIENT_ALREADY_HAVE_VISIT_IN_THIS_TIME = "Patient already have visit in this time";
 }

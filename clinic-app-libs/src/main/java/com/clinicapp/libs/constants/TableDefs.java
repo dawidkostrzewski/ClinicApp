@@ -79,5 +79,13 @@ public class TableDefs {
             public static final String HOUSE_NUBER = "HOUSE_NUMBER";
             public static final String FLAT_NUMBER = "FLAT_NUMBER";
         }
+
+        public class Visit {
+            public static final String DOCTOR = "DOCTOR";
+            public static final String PATIENT = "PATIENT";
+            public static final String TIME = "TIME";
+            public static final String DESCRIPTION = "DESCRIPTION";
+            public static final String FINISHED = "FINISHED";
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.clinicapp.users.impl.command.domain.doctor.converter;
+package com.clinicapp.users.impl.query.domain.doctor.converter;
 
 import com.clinicapp.users.api.query.definition.doctor.result.GetDoctorListElementQueryResult;
 import com.clinicapp.users.api.query.definition.doctor.result.GetDoctorsListQueryResult;

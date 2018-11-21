@@ -12,6 +12,26 @@
 
     <artifactId>clinic-app-visits-deployment</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>clinic-app</groupId>
+            <artifactId>clinic-app-visits-services</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>clinic-app-visits</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

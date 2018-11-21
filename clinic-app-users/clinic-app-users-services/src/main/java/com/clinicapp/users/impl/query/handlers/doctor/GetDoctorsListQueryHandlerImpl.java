@@ -5,7 +5,7 @@ import com.clinicapp.users.api.query.definition.doctor.query.GetDoctorsListQuery
 import com.clinicapp.users.api.query.definition.doctor.result.GetDoctorsListQueryResult;
 import com.clinicapp.users.api.query.handler.doctor.GetDoctorsListQueryHandler;
 import com.clinicapp.users.impl.command.datatypes.aggregate.Doctor;
-import com.clinicapp.users.impl.command.domain.doctor.converter.DoctorConverter;
+import com.clinicapp.users.impl.query.domain.doctor.converter.DoctorConverter;
 import com.clinicapp.users.impl.command.repo.doctor.DoctorsRepo;
 import com.clinicapp.users.impl.query.validation.doctor.GetDoctorsListQueryValidator;
 
