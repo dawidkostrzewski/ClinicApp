@@ -24,6 +24,10 @@ public abstract class BaseEntity {
     @Column(name = TableDefs.ColumnNames.BaseEntity.CREATION_TIME)
     private Long creationTime;
 
+    public BaseEntity() {
+        this.creationTime = System.currentTimeMillis();
+    }
+
     public UUID getId() {
         return id;
     }

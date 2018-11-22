@@ -19,6 +19,10 @@ public class TableDefs {
         public static final String IDENTIFICATION_NUMBER_TYPE = "IDENTIFICATION_NUMBER_TYPE";
         public static final String IDENTIFICATION_NUMBER = "IDENTIFICATION_NUMBER";
         public static final String ADDRESS = "ADDRESS";
+
+        public static final String WORK_TIME = "WORK_TIME";
+        public static final String WORK_DAY = "WORK_DAY";
+        public static final String WORKING_HOURS = "WORKING_HOURS";
     }
 
 
@@ -86,6 +90,11 @@ public class TableDefs {
             public static final String TIME = "TIME";
             public static final String DESCRIPTION = "DESCRIPTION";
             public static final String FINISHED = "FINISHED";
+        }
+
+        public class WorkTime {
+            public static final String HOURS = "HOURS";
+            public static final String MINUTES = "MINUTES";
         }
     }
 }

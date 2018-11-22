@@ -49,7 +49,7 @@ public abstract class AbstractRepo<T extends BaseEntity> {
         try {
             return entityManager.find(this.getEntityType(), id);
         } catch (NullPointerException e) {
-            throw new ClinicAppException(ExceptionsTokens.ENTITY_NOT_FOUND);
+            return null;
         } catch (IllegalArgumentException e) {
             throw new ClinicAppException(ExceptionsTokens.INVALID_PARAM);
         }

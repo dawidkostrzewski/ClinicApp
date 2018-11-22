@@ -16,7 +16,7 @@ public class CreateDoctorCommandValidator {
             throw new ClinicAppException(ExceptionsTokens.MISSING_EMAIL);
         }
 
-        if(command.getWorkingHours() == null || command.getWorkingHours().isEmpty()) {
+        if(command.getWorkingHours() == null) {
             throw new ClinicAppException(ExceptionsTokens.MISSING_DOCTOR_WORK_HOURS);
         }
 

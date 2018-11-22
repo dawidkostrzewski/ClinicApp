@@ -9,6 +9,9 @@
             <class>com.clinicapp.users.impl.command.datatypes.entity.address.Address</class>
             <class>com.clinicapp.users.impl.command.datatypes.entity.identificationnumber.IdentificationNumberType</class>
             <class>com.clinicapp.users.impl.command.datatypes.entity.identificationnumber.IdentificationNumber</class>
+            <class>com.clinicapp.users.impl.command.datatypes.entity.worktime.WorkTime</class>
+            <class>com.clinicapp.users.impl.command.datatypes.entity.worktime.WorkDay</class>
+            <class>com.clinicapp.users.impl.command.datatypes.entity.worktime.WorkingHours</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/med"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
@@ -19,6 +22,7 @@
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <property name="hibernate.default_schema" value="public"/>
         </properties>
     </persistence-unit>
 </persistence>

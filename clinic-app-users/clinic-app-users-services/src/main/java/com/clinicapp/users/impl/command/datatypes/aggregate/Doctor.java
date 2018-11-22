@@ -3,6 +3,7 @@ package com.clinicapp.users.impl.command.datatypes.aggregate;
 import com.clinicapp.users.impl.command.datatypes.QueryTokens;
 import com.clinicapp.users.impl.command.datatypes.entity.User;
 import com.clinicapp.libs.constants.TableDefs;
+import com.clinicapp.users.impl.command.datatypes.entity.worktime.WorkingHours;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,8 +26,8 @@ public class Doctor extends User implements Serializable {
     @Column(name = TableDefs.ColumnNames.Doctor.SPECIALIZATION)
     private String specialization;
 
-    @Column(name = TableDefs.ColumnNames.Doctor.WORKING_HOURS, columnDefinition="TEXT")
-    private String workingHours;
+    @OneToOne(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private WorkingHours workingHours;
 
     public Doctor() {
     }
@@ -39,11 +40,11 @@ public class Doctor extends User implements Serializable {
         this.specialization = specialization;
     }
 
-    public String getWorkingHours() {
+    public WorkingHours getWorkingHours() {
         return workingHours;
     }
 
-    public void setWorkingHours(String workingHours) {
+    public void setWorkingHours(WorkingHours workingHours) {
         this.workingHours = workingHours;
     }
 }
