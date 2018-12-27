@@ -10,10 +10,24 @@ import java.util.UUID;
 
 @NamedQueries({
         @NamedQuery(
-                name = QueryTokens.CheckVisitTimeIsAvailable,
+                name = QueryTokens.CheckVisitTimeIsAvailableForPatient,
                 query = "SELECT v FROM Visit v " +
                         "WHERE v.patient = :" + QueryTokens.PATIENT_ID + " " +
                         "AND v.time = :" + QueryTokens.VISIT_TIME
+        ),
+        @NamedQuery(
+                name = QueryTokens.CheckVisitTimeIsAvailableForDoctor,
+                query = "SELECT v FROM Visit v " +
+                        "WHERE v.doctor = :" + QueryTokens.DOCTOR_ID + " " +
+                        "AND v.time = :" + QueryTokens.VISIT_TIME
+        ),
+        @NamedQuery(
+                name = QueryTokens.GET_VISITS_IN_SELECTED_DATE_FOR_PATIENT_AND_DOCTOR,
+                query = "SELECT v FROM Visit v " +
+                        "WHERE v.doctor = :" + QueryTokens.DOCTOR_ID + " " +
+                        "OR v.patient = :" + QueryTokens.PATIENT_ID + " " +
+                        "AND v.time >= :" + QueryTokens.START_TIME + " " +
+                        "AND v.time <= :" + QueryTokens.END_TIME
         )
 })
 @Entity

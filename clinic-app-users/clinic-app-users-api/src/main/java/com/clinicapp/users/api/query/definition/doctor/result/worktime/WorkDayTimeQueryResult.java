@@ -2,16 +2,16 @@ package com.clinicapp.users.api.query.definition.doctor.result.worktime;
 
 import java.io.Serializable;
 
-public class WorkDayTime implements Serializable {
+public class WorkDayTimeQueryResult implements Serializable {
 
     private int minutes;
 
     private int hours;
 
-    public WorkDayTime() {
+    public WorkDayTimeQueryResult() {
     }
 
-    public WorkDayTime(int minutes, int hours) {
+    public WorkDayTimeQueryResult(int minutes, int hours) {
         this.minutes = minutes;
         this.hours = hours;
     }

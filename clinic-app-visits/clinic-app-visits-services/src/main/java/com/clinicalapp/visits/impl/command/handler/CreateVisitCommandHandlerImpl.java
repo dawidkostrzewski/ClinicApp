@@ -35,7 +35,9 @@ public class CreateVisitCommandHandlerImpl implements CreateVisitCommandHandler 
 
         checkIfPatientExistQueryHandler.handle(new CheckIfPatientExistQuery(command.getPatientId()));
 
-        visitRepo.checkVisitTimeIsAvailable(command);
+        visitRepo.checkVisitTimeIsAvailableForPatient(command);
+
+        visitRepo.checkVisitTimeIsAvailableForDoctor(command);
 
         return visitRepo.save(VisitFactory.create(command));
     }

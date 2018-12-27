@@ -1,6 +1,7 @@
 package com.clinicalapp.visits.impl.command.repo.visit;
 
 import com.clinicalapp.visits.api.command.definition.CreateVisitCommand;
+import com.clinicalapp.visits.api.query.definition.query.GetVisitsForSelectedDateQuery;
 import com.clinicalapp.visits.impl.command.datatypes.QueryTokens;
 import com.clinicalapp.visits.impl.command.datatypes.entity.Visit;
 import com.clinicapp.libs.exceptions.ClinicAppException;
@@ -27,7 +28,7 @@ public class VisitRepo extends AbstractRepo<Visit> {
         super.setEntityManager(entityManager);
     }
 
-    public void checkVisitTimeIsAvailable(CreateVisitCommand command) throws ClinicAppException {
+    public void checkVisitTimeIsAvailableForPatient(CreateVisitCommand command) throws ClinicAppException {
 
         List<String> paramsNames = new ArrayList<>();
         List<Object> paramsValues = new ArrayList<>();
@@ -38,10 +39,44 @@ public class VisitRepo extends AbstractRepo<Visit> {
         paramsValues.add(command.getPatientId());
         paramsValues.add(command.getVisitTime());
 
-        Visit visit = getByNamedQuery(QueryTokens.CheckVisitTimeIsAvailable, paramsNames, paramsValues);
+        Visit visit = getByNamedQuery(QueryTokens.CheckVisitTimeIsAvailableForPatient, paramsNames, paramsValues);
 
         if(visit != null) {
             throw new ClinicAppException(ExceptionsTokens.PATIENT_ALREADY_HAVE_VISIT_IN_THIS_TIME);
         }
+    }
+
+    public void checkVisitTimeIsAvailableForDoctor(CreateVisitCommand command) throws ClinicAppException {
+        List<String> paramsNames = new ArrayList<>();
+        List<Object> paramsValues = new ArrayList<>();
+
+        paramsNames.add(QueryTokens.DOCTOR_ID);
+        paramsNames.add(QueryTokens.VISIT_TIME);
+
+        paramsValues.add(command.getPatientId());
+        paramsValues.add(command.getVisitTime());
+
+        Visit visit = getByNamedQuery(QueryTokens.CheckVisitTimeIsAvailableForDoctor, paramsNames, paramsValues);
+
+        if(visit != null) {
+            throw new ClinicAppException(ExceptionsTokens.DOCTOR_ALREADY_HAVE_VISIT_IN_THIS_TIME);
+        }
+    }
+
+    public List<Visit> getAllVisitsForSelectedDate(GetVisitsForSelectedDateQuery query, Long startTime, Long endTime) throws ClinicAppException {
+        List<String> paramsNames = new ArrayList<>();
+        List<Object> paramsValues = new ArrayList<>();
+
+        paramsNames.add(QueryTokens.DOCTOR_ID);
+        paramsNames.add(QueryTokens.PATIENT_ID);
+        paramsNames.add(QueryTokens.START_TIME);
+        paramsNames.add(QueryTokens.END_TIME);
+
+        paramsValues.add(query.getDoctorId());
+        paramsValues.add(query.getPatientId());
+        paramsValues.add(startTime);
+        paramsValues.add(endTime);
+
+        return getRangeByNamedQuery(QueryTokens.GET_VISITS_IN_SELECTED_DATE_FOR_PATIENT_AND_DOCTOR, paramsNames, paramsValues);
     }
 }

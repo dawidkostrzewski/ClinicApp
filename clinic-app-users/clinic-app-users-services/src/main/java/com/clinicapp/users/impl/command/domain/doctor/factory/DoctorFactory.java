@@ -2,6 +2,7 @@ package com.clinicapp.users.impl.command.domain.doctor.factory;
 
 import com.clinicapp.libs.constants.Role;
 import com.clinicapp.users.api.command.definition.doctor.CreateDoctorCommand;
+import com.clinicapp.users.api.query.definition.doctor.result.worktime.WorkDayQueryResult;
 import com.clinicapp.users.impl.command.datatypes.aggregate.Doctor;
 import com.clinicapp.users.impl.command.datatypes.entity.worktime.WorkDay;
 import com.clinicapp.users.impl.command.datatypes.entity.worktime.WorkTime;
@@ -37,19 +38,19 @@ public class DoctorFactory {
         return doctor;
     }
 
-    private static WorkDay createWorkDay(com.clinicapp.users.api.query.definition.doctor.result.worktime.WorkDay workDayData, WorkingHours workingHours) {
+    private static WorkDay createWorkDay(WorkDayQueryResult workDayQueryResultData, WorkingHours workingHours) {
         WorkDay workDay = new WorkDay();
 
-        workDay.setStartTime(new WorkTime(workDayData.getStartTime().getHours(), workDayData.getStartTime().getMinutes()));
+        workDay.setStartTime(new WorkTime(workDayQueryResultData.getStartTime().getHours(), workDayQueryResultData.getStartTime().getMinutes()));
         workDay.getStartTime().setWorkDay(workDay);
 
-        workDay.setEndTime(new WorkTime(workDayData.getEndTime().getHours(), workDayData.getEndTime().getMinutes()));
+        workDay.setEndTime(new WorkTime(workDayQueryResultData.getEndTime().getHours(), workDayQueryResultData.getEndTime().getMinutes()));
         workDay.getEndTime().setWorkDay(workDay);
 
-        workDay.setBreakStartTime(new WorkTime(workDayData.getBreakStartTime().getHours(),workDayData.getBreakStartTime().getMinutes()));
+        workDay.setBreakStartTime(new WorkTime(workDayQueryResultData.getBreakStartTime().getHours(), workDayQueryResultData.getBreakStartTime().getMinutes()));
         workDay.getBreakStartTime().setWorkDay(workDay);
 
-        workDay.setBreakEndTime(new WorkTime(workDayData.getBreakEndTime().getHours(), workDayData.getBreakEndTime().getMinutes()));
+        workDay.setBreakEndTime(new WorkTime(workDayQueryResultData.getBreakEndTime().getHours(), workDayQueryResultData.getBreakEndTime().getMinutes()));
         workDay.getBreakEndTime().setWorkDay(workDay);
 
         workDay.setWorkingHours(workingHours);

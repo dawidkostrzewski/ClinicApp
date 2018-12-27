@@ -1,6 +1,6 @@
 package com.clinicapp.users.api.command.definition.doctor;
 
-import com.clinicapp.users.api.query.definition.doctor.result.worktime.WorkHours;
+import com.clinicapp.users.api.query.definition.doctor.result.worktime.WorkHoursQueryResult;
 
 import java.io.Serializable;
 
@@ -14,7 +14,7 @@ public class CreateDoctorCommand implements Serializable {
 
     private String specialization;
 
-    private WorkHours workingHours;
+    private WorkHoursQueryResult workingHours;
 
     public CreateDoctorCommand() {
     }
@@ -51,11 +51,11 @@ public class CreateDoctorCommand implements Serializable {
         this.specialization = specialization;
     }
 
-    public WorkHours getWorkingHours() {
+    public WorkHoursQueryResult getWorkingHours() {
         return workingHours;
     }
 
-    public void setWorkingHours(WorkHours workingHours) {
+    public void setWorkingHours(WorkHoursQueryResult workingHours) {
         this.workingHours = workingHours;
     }
 }
