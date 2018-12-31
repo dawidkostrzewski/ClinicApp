@@ -14,6 +14,7 @@ import com.clinicapp.users.api.query.handler.patient.CheckIfPatientExistQueryHan
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import java.util.UUID;
 
 @Stateless
@@ -22,9 +23,11 @@ public class CreateVisitCommandHandlerImpl implements CreateVisitCommandHandler 
     @EJB
     private VisitRepo visitRepo;
 
-    private CheckIfPatientExistQueryHandler checkIfPatientExistQueryHandler = ServiceProvider.getService(CheckIfPatientExistQueryHandler.jndi);
+    @Inject
+    private CheckIfPatientExistQueryHandler checkIfPatientExistQueryHandler;
 
-    private CheckIfDoctorExistQueryHandler checkIfDoctorExistQueryHandler = ServiceProvider.getService(CheckIfDoctorExistQueryHandler.jndi);
+    @Inject
+    private CheckIfDoctorExistQueryHandler checkIfDoctorExistQueryHandler;
 
     @Override
     public UUID handle(CreateVisitCommand command) throws ClinicAppException {

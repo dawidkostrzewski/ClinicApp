@@ -12,7 +12,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless
-public class CheckIfDoctorExistHandlerImpl extends AbstractHandler<Doctor> implements CheckIfDoctorExistQueryHandler {
+public class CheckIfDoctorExistQueryHandlerImpl extends AbstractHandler<Doctor> implements CheckIfDoctorExistQueryHandler {
 
     @EJB
     private DoctorsRepo doctorsRepo;

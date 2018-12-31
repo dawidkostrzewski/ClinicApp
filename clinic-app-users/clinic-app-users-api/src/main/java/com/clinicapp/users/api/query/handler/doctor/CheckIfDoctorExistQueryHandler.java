@@ -9,6 +9,6 @@ import javax.ejb.Remote;
 @Remote
 public interface CheckIfDoctorExistQueryHandler extends AbstractQueryHandler<Boolean, CheckIfDoctorExistQuery, ClinicAppException> {
 
-    String jndi = "java:global/clinic-app-users/CheckIfDoctorExistHandlerImpl!com.clinicapp.users.api.query.handler.doctor.CheckIfDoctorExistQueryHandler";
+    String jndi = "ejb:clinic-app-users/CheckIfDoctorExistQueryHandlerImpl!com.clinicapp.users.api.query.handler.doctor.CheckIfDoctorExistQueryHandler";
 
 }
