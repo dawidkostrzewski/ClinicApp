@@ -5,6 +5,7 @@ public class QueryTokens {
     public static final String CheckVisitTimeIsAvailableForPatient = "CHECK_VISIT_TIME_IS_AVAILABLE_FOR_PATIENT";
     public static final String CheckVisitTimeIsAvailableForDoctor = "CHECK_VISIT_TIME_IS_AVAILABLE_FOR_DOCTOR";
     public static final String GET_VISITS_IN_SELECTED_DATE_FOR_PATIENT_AND_DOCTOR = "GET_VISITS_IN_SELECTED_DATE_FOR_PATIENT_AND_DOCTOR";
+    public static final String GET_DOCTOR_VISITS_IN_SELECTED_DATE = "GET_DOCTOR_VISITS_IN_SELECTED_DATE";
 
 
     public static final String PATIENT_ID = "PATIENT_ID";

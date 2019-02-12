@@ -6,7 +6,6 @@ import com.clinicalapp.visits.impl.command.domain.factory.VisitFactory;
 import com.clinicalapp.visits.impl.command.repo.visit.VisitRepo;
 import com.clinicalapp.visits.impl.command.validation.CreateVisitCommandValidator;
 import com.clinicapp.libs.exceptions.ClinicAppException;
-import com.clinicapp.libs.handler.ServiceProvider;
 import com.clinicapp.users.api.query.definition.doctor.query.CheckIfDoctorExistQuery;
 import com.clinicapp.users.api.query.definition.patient.query.CheckIfPatientExistQuery;
 import com.clinicapp.users.api.query.handler.doctor.CheckIfDoctorExistQueryHandler;

@@ -12,6 +12,11 @@ public class GetDoctorWorkTimesForSelectedDateQuery implements Serializable {
     public GetDoctorWorkTimesForSelectedDateQuery() {
     }
 
+    public GetDoctorWorkTimesForSelectedDateQuery(UUID doctorId, Long date) {
+        this.doctorId = doctorId;
+        this.date = date;
+    }
+
     public UUID getDoctorId() {
         return doctorId;
     }

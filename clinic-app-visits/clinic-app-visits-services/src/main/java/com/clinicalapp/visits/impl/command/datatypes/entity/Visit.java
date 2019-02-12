@@ -28,6 +28,13 @@ import java.util.UUID;
                         "OR v.patient = :" + QueryTokens.PATIENT_ID + " " +
                         "AND v.time >= :" + QueryTokens.START_TIME + " " +
                         "AND v.time <= :" + QueryTokens.END_TIME
+        ),
+        @NamedQuery(
+                name = QueryTokens.GET_DOCTOR_VISITS_IN_SELECTED_DATE,
+                query = "SELECT v FROM Visit v " +
+                        "WHERE v.doctor = :" + QueryTokens.DOCTOR_ID + " " +
+                        "AND v.time >= :" + QueryTokens.START_TIME + " " +
+                        "AND v.time <= :" + QueryTokens.END_TIME
         )
 })
 @Entity

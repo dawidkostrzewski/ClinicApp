@@ -1,7 +1,6 @@
 package com.clinicalapp.visits.impl.command.repo.visit;
 
 import com.clinicalapp.visits.api.command.definition.CreateVisitCommand;
-import com.clinicalapp.visits.api.query.definition.query.GetVisitsForSelectedDateQuery;
 import com.clinicalapp.visits.impl.command.datatypes.QueryTokens;
 import com.clinicalapp.visits.impl.command.datatypes.entity.Visit;
 import com.clinicapp.libs.exceptions.ClinicAppException;
@@ -15,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Stateless
 @LocalBean
@@ -63,7 +63,7 @@ public class VisitRepo extends AbstractRepo<Visit> {
         }
     }
 
-    public List<Visit> getAllVisitsForSelectedDate(GetVisitsForSelectedDateQuery query, Long startTime, Long endTime) throws ClinicAppException {
+    public List<Visit> getAllVisitsForSelectedDate(UUID patientId, UUID doctorId, Long startTime, Long endTime) throws ClinicAppException {
         List<String> paramsNames = new ArrayList<>();
         List<Object> paramsValues = new ArrayList<>();
 
@@ -72,11 +72,26 @@ public class VisitRepo extends AbstractRepo<Visit> {
         paramsNames.add(QueryTokens.START_TIME);
         paramsNames.add(QueryTokens.END_TIME);
 
-        paramsValues.add(query.getDoctorId());
-        paramsValues.add(query.getPatientId());
+        paramsValues.add(doctorId);
+        paramsValues.add(patientId);
         paramsValues.add(startTime);
         paramsValues.add(endTime);
 
         return getRangeByNamedQuery(QueryTokens.GET_VISITS_IN_SELECTED_DATE_FOR_PATIENT_AND_DOCTOR, paramsNames, paramsValues);
+    }
+
+    public List<Visit> getAllDoctorVisitInSelectedDate(UUID doctorId, Long startTime, Long endTime) throws ClinicAppException {
+        List<String> paramsNames = new ArrayList<>();
+        List<Object> paramsValues = new ArrayList<>();
+
+        paramsNames.add(QueryTokens.DOCTOR_ID);
+        paramsNames.add(QueryTokens.START_TIME);
+        paramsNames.add(QueryTokens.END_TIME);
+
+        paramsValues.add(doctorId);
+        paramsValues.add(startTime);
+        paramsValues.add(endTime);
+
+        return getRangeByNamedQuery(QueryTokens.GET_DOCTOR_VISITS_IN_SELECTED_DATE, paramsNames, paramsValues);
     }
 }

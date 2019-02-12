@@ -31,6 +31,7 @@ public class ExceptionsTokens {
     public static final String EMAIL_ALREADY_TAKEN = "E-mail is already taken";
     public static final String IDENTIFICATION_NUMBER_UNIQUE_FALIED = "Patient with this identification number exist";
 
+    public static final String MISSING_DATE = "Missing date";
     public static final String MISSING_VISIT_TIME = "Missing visit time";
     public static final String PATIENT_ALREADY_HAVE_VISIT_IN_THIS_TIME = "Patient already have visit in this time";
     public static final String DOCTOR_ALREADY_HAVE_VISIT_IN_THIS_TIME = "Doctor already have visit in this time";
